@@ -1,0 +1,16 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: cs3081-cluster
+servers: 1
+agents: 1
+# Expose the node's Traefik (bundled with k3s) on localhost:8080 so
+# http://localhost:8080 reaches the Ingress from the host.
+ports:
+  - port: 8080:80
+    nodeFilters:
+      - loadbalancer
+options:
+  kubeconfig:
+    updateDefaultKubeconfig: true
+    switchCurrentContext: true

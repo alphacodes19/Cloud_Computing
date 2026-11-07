@@ -1,0 +1,12 @@
+# never commit model weights or credentials
+models/
+datasets/
+k8s/secret.yaml
+*.pt
+*.bin
+*.safetensors
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.env

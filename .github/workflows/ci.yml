@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install ruff
+      - run: ruff check worker training service tests
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pytest
+      - run: pytest tests/ -v
+
+  evaluate-model:
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install CPU torch + transformers
+        run: |
+          pip install --index-url https://download.pytorch.org/whl/cpu torch==2.3.1
+          pip install transformers==4.42.3 pyyaml
+      - name: Download trained model from the GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p models/v1
+          gh release download model-v1 --repo "$GITHUB_REPOSITORY" --dir models/v1 --clobber
+      - name: Generate predictions
+        run: python training/predict.py --model-dir models/v1 --out results/ci_predictions.jsonl
+      - name: Score
+        run: python tools/score.py results/ci_predictions.jsonl data/validation.jsonl --out results/ci_report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ci-score-report
+          path: |
+            results/ci_report.json
+            results/ci_predictions.jsonl
+
+  quality-gate:
+    runs-on: ubuntu-latest
+    needs: evaluate-model
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: ci-score-report
+          path: results/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Re-run with the strict validity gate
+        run: python tools/score.py results/ci_predictions.jsonl data/validation.jsonl --min-validity 95
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

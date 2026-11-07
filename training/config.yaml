@@ -1,0 +1,17 @@
+seed: 42
+learning_rate: 5.0e-5
+batch_size: 8
+num_epochs: 3
+max_seq_length: 256
+
+base_model: EleutherAI/pythia-70m
+train_file: datasets/v1/train.jsonl
+max_train_records: 1500        # "the first 1,500 records in the cleaned dataset"
+
+# library versions used (fill in with `pip freeze` output after you set up
+# your environment; these are the versions this config was written against)
+library_versions:
+  python: "3.11"
+  torch: "2.3.1"
+  transformers: "4.42.3"
+  datasets: "2.20.0"
