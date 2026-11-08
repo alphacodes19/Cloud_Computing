@@ -2,7 +2,11 @@ name: CI
 
 on:
   push:
+  pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   lint:
@@ -13,7 +17,7 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install ruff
-      - run: ruff check worker training service tests
+      - run: ruff check --select E4,E7,E9,F worker training service tests
 
   unit-tests:
     runs-on: ubuntu-latest
@@ -23,7 +27,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install pytest
+      - run: pip install -r service/requirements.txt pytest
       - run: pytest tests/ -v
 
   evaluate-model:
@@ -34,20 +38,43 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install CPU torch + transformers
+
+      - name: Install CPU inference dependencies
         run: |
           pip install --index-url https://download.pytorch.org/whl/cpu torch==2.3.1
-          pip install transformers==4.42.3 pyyaml
-      - name: Download trained model from the GitHub Release
+          pip install transformers==4.42.3 pyyaml safetensors
+
+      - name: Download and verify model release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mkdir -p models/v1
-          gh release download model-v1 --repo "$GITHUB_REPOSITORY" --dir models/v1 --clobber
+          mkdir -p release-assets models
+          gh release download model-v1 \
+            --repo "$GITHUB_REPOSITORY" \
+            --dir release-assets \
+            --clobber
+          cd release-assets
+          sha256sum -c SHA256SUMS
+          cd ..
+          tar -xzf release-assets/pythia-70m-v1.tar.gz -C models
+          test -s models/v1/config.json
+          test -s models/v1/model.safetensors
+
       - name: Generate predictions
-        run: python training/predict.py --model-dir models/v1 --out results/ci_predictions.jsonl
+        run: |
+          mkdir -p results
+          python training/predict.py \
+            --model-dir models/v1 \
+            --validation data/validation.jsonl \
+            --out results/ci_predictions.jsonl
+
       - name: Score
-        run: python tools/score.py results/ci_predictions.jsonl data/validation.jsonl --out results/ci_report.json
+        run: |
+          python tools/score.py \
+            results/ci_predictions.jsonl \
+            data/validation.jsonl \
+            --out results/ci_report.json
+
       - uses: actions/upload-artifact@v4
         with:
           name: ci-score-report
@@ -67,8 +94,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Re-run with the strict validity gate
-        run: python tools/score.py results/ci_predictions.jsonl data/validation.jsonl --min-validity 95
+      - name: Enforce 95 percent JSON validity
+        run: |
+          python tools/score.py \
+            results/ci_predictions.jsonl \
+            data/validation.jsonl \
+            --min-validity 95
 
   secret-scan:
     runs-on: ubuntu-latest

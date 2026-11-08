@@ -1,0 +1,103 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: label-shard-0
+  namespace: pipeline
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: worker
+          image: worker-label:structured-v1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SHARD_INDEX
+              value: "0"
+            - name: SHARD_COUNT
+              value: "2"
+            - name: OLLAMA_HOST
+              value: "${OLLAMA_HOST}"
+            - name: S3_ENDPOINT
+              value: "http://seaweedfs-s3.data.svc.cluster.local:8333"
+            - name: S3_BUCKET
+              value: "datasets"
+            - name: S3_TEACHER_PREFIX
+              value: "teacher/structured-v1"
+            - name: S3_COMMANDS_KEY
+              value: "commands_pool.jsonl"
+            - name: S3_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: S3_ACCESS_KEY
+            - name: S3_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: S3_SECRET_KEY
+            - name: COMMANDS_PATH
+              value: "/data/commands_pool.jsonl"
+            - name: PROMPT_PATH
+              value: "/app/prompts/teacher_prompt.txt"
+            - name: SCHEMA_PATH
+              value: "/app/data/schema.json"
+            - name: OUTPUT_PATH
+              value: "/out/shard-0.jsonl"
+            - name: MAX_ATTEMPTS
+              value: "5"
+            - name: UPLOAD_EVERY
+              value: "25"
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: label-shard-1
+  namespace: pipeline
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: worker
+          image: worker-label:structured-v1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SHARD_INDEX
+              value: "1"
+            - name: SHARD_COUNT
+              value: "2"
+            - name: OLLAMA_HOST
+              value: "${OLLAMA_HOST}"
+            - name: S3_ENDPOINT
+              value: "http://seaweedfs-s3.data.svc.cluster.local:8333"
+            - name: S3_BUCKET
+              value: "datasets"
+            - name: S3_TEACHER_PREFIX
+              value: "teacher/structured-v1"
+            - name: S3_COMMANDS_KEY
+              value: "commands_pool.jsonl"
+            - name: S3_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: S3_ACCESS_KEY
+            - name: S3_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: S3_SECRET_KEY
+            - name: COMMANDS_PATH
+              value: "/data/commands_pool.jsonl"
+            - name: PROMPT_PATH
+              value: "/app/prompts/teacher_prompt.txt"
+            - name: SCHEMA_PATH
+              value: "/app/data/schema.json"
+            - name: OUTPUT_PATH
+              value: "/out/shard-1.jsonl"
+            - name: MAX_ATTEMPTS
+              value: "5"
+            - name: UPLOAD_EVERY
+              value: "25"

@@ -1,0 +1,5 @@
+model,json_validity,intent_accuracy,date_accuracy,time_accuracy,place_accuracy,full_frame,examples,missing_predictions
+phi3.5_teacher,100,83,77,81,78,39,100,0
+pythia_70m_untrained,0,0,0,0,0,0,100,0
+pythia_v1,99,79,71,80,79,33,100,0
+pythia_v2,98,81,73,80,81,37,100,0

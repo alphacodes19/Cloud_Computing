@@ -12,3 +12,14 @@ venv/
 .env
 .venv/
 .venv/
+
+# GitHub Release archives (upload separately)
+release-assets/
+
+# Local backup files
+*.bak
+*.backup
+
+# Incomplete evaluation and unsuccessful early attempts
+results/evaluation/teacher_predictions.partial.jsonl
+results/label-shard-*-before-fix.log

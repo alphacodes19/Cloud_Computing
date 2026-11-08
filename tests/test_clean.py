@@ -1,6 +1,10 @@
 """Unit tests for worker/clean.py's pure-logic helpers."""
-import sys, os
+
+import os
+import sys
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+
 from worker.clean import norm, slot_appears_in_command
 
 
@@ -18,4 +22,6 @@ def test_slot_value_must_appear_in_command():
 
 
 def test_slot_match_is_case_and_space_insensitive():
-    assert slot_appears_in_command("Seven AM", "set an alarm for seven   am please") is True
+    assert slot_appears_in_command(
+        "Seven AM", "set an alarm for seven   am please"
+    )

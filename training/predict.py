@@ -1,86 +1,114 @@
-"""Generate predictions.jsonl for score.py, from either:
-  --model-dir PATH        a local HF model (trained student, or untrained pythia-70m)
-  --teacher                the Ollama teacher (phi3.5), same prompt/settings as Task 1
+"""Generate validation predictions from Phi-3.5 or a Hugging Face causal LM.
 
-Usage:
+Examples:
   python training/predict.py --teacher --out results/teacher_predictions.jsonl
   python training/predict.py --model-dir EleutherAI/pythia-70m --out results/untrained_predictions.jsonl
   python training/predict.py --model-dir models/v1 --out results/student_v1_predictions.jsonl
-
-Then score with:
-  python tools/score.py results/teacher_predictions.jsonl data/validation.jsonl \
-      --out results/teacher_validation.json
 """
+from __future__ import annotations
+
 import argparse
 import json
-import os
 import sys
+from pathlib import Path
 
-sys.path.insert(0, os.path.dirname(__file__))
-
-
-def predict_with_teacher(commands):
-    from worker.label import call_teacher, load_prompt_template  # noqa
-    prompt_template = load_prompt_template("prompts/teacher_prompt.txt")
-    for cmd_id, text in commands:
-        yield cmd_id, call_teacher(prompt_template, text)
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 
-def predict_with_hf_model(model_dir, commands, max_new_tokens):
+def load_validation(path: str) -> list[tuple[str, str]]:
+    commands: list[tuple[str, str]] = []
+    with open(path, encoding="utf-8") as handle:
+        for line_number, line in enumerate(handle, start=1):
+            if not line.strip():
+                continue
+            record = json.loads(line)
+            if not isinstance(record.get("id"), str) or not isinstance(record.get("text"), str):
+                raise ValueError(f"Invalid validation record at line {line_number}")
+            commands.append((record["id"], record["text"]))
+    return commands
+
+
+def predict_with_teacher(commands: list[tuple[str, str]]):
+    from worker.label import call_teacher, load_json_schema, load_prompt_template
+
+    prompt_template = load_prompt_template(str(ROOT / "prompts/teacher_prompt.txt"))
+    json_schema = load_json_schema(str(ROOT / "data/schema.json"))
+    for command_id, text in commands:
+        yield command_id, call_teacher(prompt_template, text, json_schema)
+
+
+def predict_with_hf_model(model_dir: str, commands: list[tuple[str, str]], max_new_tokens: int):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
+    if tokenizer.eos_token is None:
+        raise ValueError("Tokenizer does not define an EOS token")
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
+
     model = AutoModelForCausalLM.from_pretrained(model_dir)
+    model.to(torch.device("cpu"))
     model.eval()
 
-    for cmd_id, text in commands:
+    for command_id, text in commands:
         prompt = f"Command: {text}\nJSON:"
         inputs = tokenizer(prompt, return_tensors="pt")
-        with torch.no_grad():
-            out = model.generate(
+        with torch.inference_mode():
+            generated = model.generate(
                 **inputs,
                 max_new_tokens=max_new_tokens,
                 do_sample=False,
+                num_beams=1,
                 pad_token_id=tokenizer.pad_token_id,
+                eos_token_id=tokenizer.eos_token_id,
             )
-        full_text = tokenizer.decode(out[0], skip_special_tokens=True)
-        generated = full_text[len(prompt):].strip()
-        yield cmd_id, generated
+        continuation = generated[0, inputs["input_ids"].shape[1]:]
+        prediction = tokenizer.decode(continuation, skip_special_tokens=True).strip()
+        yield command_id, prediction
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--validation", default="data/validation.jsonl")
-    ap.add_argument("--out", required=True)
-    ap.add_argument("--model-dir")
-    ap.add_argument("--teacher", action="store_true")
-    ap.add_argument("--max-new-tokens", type=int, default=64)
-    args = ap.parse_args()
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--validation", default="data/validation.jsonl")
+    parser.add_argument("--out", required=True)
+    parser.add_argument("--model-dir")
+    parser.add_argument("--teacher", action="store_true")
+    parser.add_argument("--max-new-tokens", type=int, default=64)
+    args = parser.parse_args()
 
-    if not args.teacher and not args.model_dir:
-        sys.exit("pass either --teacher or --model-dir")
+    if args.teacher == bool(args.model_dir):
+        parser.error("Pass exactly one of --teacher or --model-dir")
+    if args.max_new_tokens < 1:
+        parser.error("--max-new-tokens must be positive")
 
-    commands = []
-    with open(args.validation, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            rec = json.loads(line)
-            commands.append((rec["id"], rec["text"]))
+    commands = load_validation(str(ROOT / args.validation) if not Path(args.validation).is_absolute() else args.validation)
+    output_path = Path(args.out)
+    if not output_path.is_absolute():
+        output_path = ROOT / output_path
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
-    with open(args.out, "w", encoding="utf-8") as out:
-        gen = predict_with_teacher(commands) if args.teacher else \
-            predict_with_hf_model(args.model_dir, commands, args.max_new_tokens)
-        for cmd_id, prediction in gen:
-            out.write(json.dumps({"id": cmd_id, "prediction": prediction}) + "\n")
-            print(f"{cmd_id}: {prediction[:80]}")
+    if args.teacher:
+        predictions = predict_with_teacher(commands)
+    else:
+        model_dir = args.model_dir
+        if not Path(model_dir).is_absolute() and (ROOT / model_dir).exists():
+            model_dir = str(ROOT / model_dir)
+        predictions = predict_with_hf_model(model_dir, commands, args.max_new_tokens)
 
-    print(f"wrote {args.out}")
+    with output_path.open("w", encoding="utf-8") as output:
+        for command_id, prediction in predictions:
+            output.write(
+                json.dumps(
+                    {"id": command_id, "prediction": prediction},
+                    ensure_ascii=False,
+                ) + "\n"
+            )
+            print(f"{command_id}: {prediction[:100]}", flush=True)
+
+    print(f"Wrote {len(commands)} predictions to {output_path}", flush=True)
 
 
 if __name__ == "__main__":

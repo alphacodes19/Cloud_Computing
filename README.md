@@ -1,6 +1,6 @@
 # CS3081 Mini Project — Command-Parser Knowledge Distillation
 
-<ROLL_NUMBER> — <YOUR NAME>
+230101019 — Sambodh Gupta
 
 ## Repository layout
 ```
@@ -44,7 +44,7 @@ make down
 ```
 
 ## GitHub links
-- Repository: <PASTE LINK>
-- Model release (v1): <PASTE LINK>
-- Model release (v2): <PASTE LINK>
-- CI run that fails the quality gate: <PASTE LINK>
+- Repository: https://github.com/alphacodes19/Cloud_Computing
+- Model release (v1): Pending publication
+- Model release (v2): Pending publication
+- CI run that fails the quality gate: Pending execution

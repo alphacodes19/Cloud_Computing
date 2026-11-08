@@ -1,0 +1,23 @@
+CS3081 model artifact SHA-256 verification
+Bucket: models
+
+PASS  v1/config.json  size=764  sha256=803bf886805def84ee71ec198308ba1a401ce443b4383099e551c8d47368f38d
+PASS  v1/generation_config.json  size=111  sha256=bce48ecb23961e817c63bcfceee48c9f142caf82456ec4a8b7bd52ebb547f73e
+PASS  v1/model.safetensors  size=281715176  sha256=6c088ef0a4a59adc305f61b6dc94aebf289af036217072249d5e5e5f5160154a
+PASS  v1/special_tokens_map.json  size=473  sha256=57491904f8680d4b52ed440f1f7ba48cad1c31ecf3eb453b03484e6ff4723ae8
+PASS  v1/tokenizer.json  size=2114315  sha256=36f81be80dddd808e26dcf178e0ec551608c8513d537aab0d8273bccea13af27
+PASS  v1/tokenizer_config.json  size=4845  sha256=3c4f587ac3a67c3964d3e84248f95ffc8e4f0e64d9de677692df39aa35eb2d11
+PASS  v1/training_args.bin  size=5112  sha256=c7edc20ee43ac3918c83b541961f3234be9448e10f761bd0b6c32a55ae3ccb82
+PASS  v1/training_metadata.json  size=260  sha256=d9e24dd26d2b8095832a5eddf7391d5ec5a8ded148b1a711c68a7187ffe265ba
+PASS  v2/config.json  size=764  sha256=803bf886805def84ee71ec198308ba1a401ce443b4383099e551c8d47368f38d
+PASS  v2/generation_config.json  size=111  sha256=bce48ecb23961e817c63bcfceee48c9f142caf82456ec4a8b7bd52ebb547f73e
+PASS  v2/model.safetensors  size=281715176  sha256=b48c9359a03555663d834e65e1ccc9e9ae6e74d9e6ea4f89148ab0c9f199ec07
+PASS  v2/special_tokens_map.json  size=473  sha256=57491904f8680d4b52ed440f1f7ba48cad1c31ecf3eb453b03484e6ff4723ae8
+PASS  v2/tokenizer.json  size=2114315  sha256=36f81be80dddd808e26dcf178e0ec551608c8513d537aab0d8273bccea13af27
+PASS  v2/tokenizer_config.json  size=4845  sha256=3c4f587ac3a67c3964d3e84248f95ffc8e4f0e64d9de677692df39aa35eb2d11
+PASS  v2/training_args.bin  size=5112  sha256=5cf1283d0a873ecaccd26a15d6ff7bc89bb40ce70611ddace96d84eee33f6ea2
+PASS  v2/training_metadata.json  size=260  sha256=23548f990dce4616db0960fbce3a6d97285b7287522f095e5549cb25d662f037
+
+Files verified: 16
+Bytes uploaded: 567682112
+Failures: 0

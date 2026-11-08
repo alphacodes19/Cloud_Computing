@@ -1,0 +1,189 @@
+Validation records: 100
+Already completed: 39
+Remaining: 61
+
+[40/100] Generating V040
+V040: saved successfully
+
+[41/100] Generating V041
+V041: saved successfully
+
+[42/100] Generating V042
+V042: saved successfully
+
+[43/100] Generating V043
+V043: saved successfully
+
+[44/100] Generating V044
+V044: saved successfully
+
+[45/100] Generating V045
+V045: saved successfully
+
+[46/100] Generating V046
+V046: saved successfully
+
+[47/100] Generating V047
+V047: saved successfully
+
+[48/100] Generating V048
+V048: saved successfully
+
+[49/100] Generating V049
+V049: saved successfully
+
+[50/100] Generating V050
+V050: saved successfully
+
+[51/100] Generating V051
+V051: saved successfully
+
+[52/100] Generating V052
+V052: saved successfully
+
+[53/100] Generating V053
+V053: saved successfully
+
+[54/100] Generating V054
+V054: saved successfully
+
+[55/100] Generating V055
+V055: saved successfully
+
+[56/100] Generating V056
+V056: saved successfully
+
+[57/100] Generating V057
+V057: saved successfully
+
+[58/100] Generating V058
+V058: saved successfully
+
+[59/100] Generating V059
+V059: saved successfully
+
+[60/100] Generating V060
+V060: saved successfully
+
+[61/100] Generating V061
+V061: saved successfully
+
+[62/100] Generating V062
+V062: saved successfully
+
+[63/100] Generating V063
+V063: saved successfully
+
+[64/100] Generating V064
+V064: saved successfully
+
+[65/100] Generating V065
+V065: saved successfully
+
+[66/100] Generating V066
+V066: saved successfully
+
+[67/100] Generating V067
+V067: saved successfully
+
+[68/100] Generating V068
+V068: saved successfully
+
+[69/100] Generating V069
+V069: saved successfully
+
+[70/100] Generating V070
+V070: saved successfully
+
+[71/100] Generating V071
+V071: saved successfully
+
+[72/100] Generating V072
+V072: saved successfully
+
+[73/100] Generating V073
+V073: saved successfully
+
+[74/100] Generating V074
+V074: saved successfully
+
+[75/100] Generating V075
+V075: saved successfully
+
+[76/100] Generating V076
+V076: saved successfully
+
+[77/100] Generating V077
+V077: saved successfully
+
+[78/100] Generating V078
+V078: saved successfully
+
+[79/100] Generating V079
+V079: saved successfully
+
+[80/100] Generating V080
+V080: saved successfully
+
+[81/100] Generating V081
+V081: saved successfully
+
+[82/100] Generating V082
+V082: saved successfully
+
+[83/100] Generating V083
+V083: saved successfully
+
+[84/100] Generating V084
+V084: saved successfully
+
+[85/100] Generating V085
+V085: saved successfully
+
+[86/100] Generating V086
+V086: saved successfully
+
+[87/100] Generating V087
+V087: saved successfully
+
+[88/100] Generating V088
+V088: saved successfully
+
+[89/100] Generating V089
+V089: saved successfully
+
+[90/100] Generating V090
+V090: saved successfully
+
+[91/100] Generating V091
+V091: saved successfully
+
+[92/100] Generating V092
+V092: saved successfully
+
+[93/100] Generating V093
+V093: saved successfully
+
+[94/100] Generating V094
+V094: saved successfully
+
+[95/100] Generating V095
+V095: saved successfully
+
+[96/100] Generating V096
+V096: saved successfully
+
+[97/100] Generating V097
+V097: saved successfully
+
+[98/100] Generating V098
+V098: saved successfully
+
+[99/100] Generating V099
+V099: saved successfully
+
+[100/100] Generating V100
+V100: saved successfully
+
+SUCCESS: 100 teacher predictions saved.
+Output: /home/peter/cs3081/results/evaluation/teacher_predictions.jsonl

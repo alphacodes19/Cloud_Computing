@@ -1,24 +1,36 @@
 """Unit tests for service/app.py's validate_output()."""
-import sys, os, json
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "service"))
-
-SCHEMA = json.load(open(os.path.join(os.path.dirname(__file__), "..", "data", "schema.json")))
 
 import importlib.util
-spec = importlib.util.spec_from_file_location(
-    "app", os.path.join(os.path.dirname(__file__), "..", "service", "app.py")
-)
-# app.py reads required env vars at import time; set dummies for the test import.
+import json
+import os
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+sys.path.insert(0, str(ROOT / "service"))
+
+with (ROOT / "data" / "schema.json").open(encoding="utf-8") as file:
+    SCHEMA = json.load(file)
+
+# app.py reads required environment variables at import time.
 os.environ.setdefault("MODEL_URI", "s3://models/v1")
 os.environ.setdefault("MODEL_VERSION", "test")
 os.environ.setdefault("S3_ENDPOINT", "http://localhost:8333")
 os.environ.setdefault("MAX_NEW_TOKENS", "64")
+
+spec = importlib.util.spec_from_file_location("app", ROOT / "service" / "app.py")
 app_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(app_module)
 
 
 def test_valid_output_passes():
-    obj = {"intent": "alarm_set", "date": "tomorrow", "time": "seven am", "place": None}
+    obj = {
+        "intent": "alarm_set",
+        "date": "tomorrow",
+        "time": "seven am",
+        "place": None,
+    }
     assert app_module.validate_output(obj, SCHEMA) is True
 
 

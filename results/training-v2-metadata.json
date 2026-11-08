@@ -1,0 +1,12 @@
+{
+  "base_model": "EleutherAI/pythia-70m",
+  "seed": 42,
+  "learning_rate": 5e-05,
+  "batch_size": 8,
+  "epochs": 4,
+  "max_seq_length": 256,
+  "training_records": 1500,
+  "train_file": "datasets/v1/train.jsonl",
+  "python": "3.11.9",
+  "torch": "2.3.1+cpu"
+}

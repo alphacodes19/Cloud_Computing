@@ -1,0 +1,7 @@
+Downloaded s3://datasets/commands_pool.jsonl -> /tmp/input/commands_pool.jsonl
+[shard 0] expected=1 already_done=0 remaining=1
+[shard 0] labelled C0001 (1/1)
+[shard 0] uploaded s3://datasets/teacher/smoke-test/shard-0.jsonl
+[shard 0] uploaded s3://datasets/teacher/smoke-test/shard-0.jsonl
+[shard 0] SUMMARY expected=1 completed=1 newly_labelled=1 failed=0 missing=0
+[shard 0] SUCCESS: all assigned commands labelled

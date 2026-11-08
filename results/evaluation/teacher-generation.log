@@ -1,0 +1,244 @@
+V001: {
+  "intent": "calendar_remove",
+  "date": null,
+  "time": null,
+  "place": null
+}
+V002: {
+  "intent": "alarm_set",
+  "date": "sunday",
+  "time": "five in the morning",
+  "place": null
+}
+V003: {
+  "intent": "datetime_query",
+  "date": null,
+  "time": "right now",
+  "place": "washington"
+}
+V004: {
+  "intent": "calendar_query",
+  "date": "mondays",
+  "time": "start",
+  "place": null
+}
+V005: {
+  "intent": "alarm_set",
+  "date": "tuesday",
+  "time": "six pm",
+  "place": null
+}
+V006: {
+  "intent": "calendar_query",
+  "date": "this afternoon",
+  "time": null,
+  "place": null
+}
+V007: {
+  "intent": "datetime_query",
+  "date": "november fourteenth",
+  "time": null,
+  "place": null
+}
+V008: {
+  "intent": "calendar_query",
+  "date": "this weekend",
+  "time": null,
+  "place": null
+}
+V009: {
+  "intent": "datetime_query",
+  "date": null,
+  "time": "central time zone",
+  "place": null
+}
+V010: {
+  "intent": "calendar_query",
+  "date": "dale' extrinsic value not mentioned",
+  "time": "not ment
+V011: {
+  "intent": "weather_query",
+  "date": null,
+  "time": null,
+  "place": null
+}
+V012: {
+  "intent": "datetime_query",
+  "date": null,
+  "time": "pst",
+  "place": null
+}
+V013: {
+  "intent": "recommendation_events",
+  "date": null,
+  "time": null,
+  "place": "area"
+}
+V014: {
+  "intent": "calendar_query",
+  "date": "this afternoon",
+  "time": null,
+  "place": null
+}
+V015: {
+  "intent": "calendar_remove",
+  "date": "today",
+  "time": null,
+  "place": null
+}
+V016: {
+  "intent": "calendar_query",
+  "date": null,
+  "time": null,
+  "place": null
+}
+V017: {
+  "intent": "alarm_set",
+  "date": null,
+  "time": "this time",
+  "place": null
+}
+V018: {
+  "intent": "recommendation_events",
+  "date": "tomorrow",
+  "time": "an hour before it starts",
+
+V019: {
+  "intent": "calendar_query",
+  "date": null,
+  "time": null,
+  "place": null
+}
+V020: {
+  "intent": "weather_query",
+  "date": null,
+  "time": null,
+  "place": "our city"
+}
+V021: {
+  "intent": "recommendation_events",
+  "date": null,
+  "time": null,
+  "place": null
+}
+V022: {
+  "intent": "recommendation_events",
+  "date": null,
+  "time": null,
+  "place": "call to all parti
+V023: {
+  "intent": "calendar_set",
+  "date": "every june third",
+  "time": null,
+  "place": null
+}
+V024: {
+  "intent": "calendar_query",
+  "date": "justin'thy school play",
+  "time": null,
+  "place": null
+
+V025: {
+  "intent": "datetime_query",
+  "date": null,
+  "time": "now",
+  "place": "New York"
+}
+V026: {
+  "intent": "weather_query",
+  "date": null,
+  "time": null,
+  "place": "New York City"
+}
+V027: {
+  "intent": "calendar_query",
+  "date": "today",
+  "time": null,
+  "place": null
+}
+V028: {
+  "intent": "weather_query",
+  "date": null,
+  "time": null,
+  "place": "home"
+}
+V029: {
+  "intent": "alarm_query",
+  "date": null,
+  "time": null,
+  "place": null
+}
+V030: {
+  "intent": "alarm_set",
+  "date": null,
+  "time": "ten am",
+  "place": null
+}
+V031: {
+  "intent": "recommendation_events",
+  "date": null,
+  "time": null,
+  "place": null
+}
+V032: {
+  "intent": "datetime_query",
+  "date": "this year",
+  "time": null,
+  "place": null
+}
+V033: {
+  "intent": "alarm_set",
+  "date": "next tuesday",
+  "time": "eight hundred am",
+  "place": null
+}
+V034: {
+  "intent": "recommendation_events",
+  "date": null,
+  "time": null,
+  "place": null
+}
+V035: {
+  "intent": "alarm_query",
+  "date": "today",
+  "time": null,
+  "place": null
+}
+V036: {
+  "intent": "alarm_query",
+  "date": "seven am",
+  "time": "seven am",
+  "place": null
+}
+V037: {
+  "intent": "calendar_set",
+  "date": "tomorrow",
+  "time": "seven",
+  "place": "office meeting"
+}
+V038: {
+  "intent": "calendar_set",
+  "date": "monday",
+  "time": "six",
+  "place": "mcdonalds"
+}
+V039: {
+  "intent": "calendar_remove",
+  "date": "Wyatt's birthday party",
+  "time": null,
+  "place": null
+[teacher] attempt 1/5 failed: timed out; retrying in 2.0s
+[teacher] attempt 2/5 failed: timed out; retrying in 4.0s
+[teacher] attempt 3/5 failed: timed out; retrying in 8.0s
+[teacher] attempt 4/5 failed: timed out; retrying in 16.0s
+Traceback (most recent call last):
+  File "/home/peter/cs3081/training/predict.py", line 115, in <module>
+    main()
+  File "/home/peter/cs3081/training/predict.py", line 102, in main
+    for command_id, prediction in predictions:
+  File "/home/peter/cs3081/training/predict.py", line 39, in predict_with_teacher
+    yield command_id, call_teacher(prompt_template, text, json_schema)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peter/cs3081/worker/label.py", line 90, in call_teacher
+    raise RuntimeError(
+RuntimeError: Teacher request failed after 5 attempts: timed out
