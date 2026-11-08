@@ -4,6 +4,12 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      test_quality_gate_failure:
+        description: "Use untrained predictions to verify the 95% quality gate"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -64,13 +70,20 @@ jobs:
           test -s models/v1/config.json
           test -s models/v1/model.safetensors
 
-      - name: Generate predictions
+      - name: Generate trained-model predictions
+        if: ${{ inputs.test_quality_gate_failure != true }}
         run: |
           mkdir -p results
           python training/predict.py \
             --model-dir models/v1 \
             --validation data/validation.jsonl \
             --out results/ci_predictions.jsonl
+
+      - name: Prepare deliberately invalid predictions for quality-gate test
+        if: ${{ inputs.test_quality_gate_failure == true }}
+        run: |
+          mkdir -p results
+          cp results/evaluation/pythia_untrained_predictions.jsonl results/ci_predictions.jsonl
 
       - name: Score
         run: |
