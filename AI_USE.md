@@ -1,23 +1,40 @@
-# AI_USE.md
+# AI Use Disclosure
 
-## Scope and disclosure
+AI tools were used as assistants during the development and documentation
+of this project. The project author reviewed, adapted and tested the
+generated suggestions.
 
-For the Task 6 documentation pass, GitHub Copilot was used to inspect the existing repository files and CI workflow, identify unfinished Task 6 documentation, and help draft reproducibility and security-evidence text. The suggestions were checked against the workflow, scoring script, checked-in metadata/checksums, and available GitHub Actions run records before being added.
+## Tools used
 
-This file records only the AI assistance that can be verified for this pass. It does not claim that a particular AI tool was or was not used for Tasks 1–5 or 7. The project author should add those details from their own records before submitting; do not copy in tool names or activities that did not actually occur.
+- OpenAI ChatGPT: Used for explanations, troubleshooting, code suggestions,
+  debugging, test planning, documentation and preparation of report and
+  reflection reference drafts.
+- GitHub Copilot: Used for repository inspection and assistance with
+  Task 6 CI/CD documentation and reproducibility improvements.
 
-## Task 6 assistance and verification
+## Areas of assistance
 
-- **Asked for:** help completing the remaining Task 6 work: CI/CD reproducibility instructions, a truthful AI-use disclosure, security evidence, and final-tag instructions.
-- **AI-assisted:** repository inspection and drafting/editing of Task 6 documentation. The existing CI workflow and its deliberate quality-gate test were reviewed; this documentation pass does not claim to have authored the historical application, model, or infrastructure code.
-- **Checked against:** `.github/workflows/ci.yml`, `tools/score.py`, the checked-in untrained prediction fixture, model artifact checksums, and the linked GitHub Actions runs.
-- **Observed results:** the existing normal CI run completed successfully; the deliberate quality-gate run failed at the intended 95% JSON-validity check (0.0%, 100 examples, exit code 1). Links and scope are recorded in `TASK6_REPRODUCIBILITY.md`.
-- **Limitations:** no local shell, cluster, or Git tag-push operation was available during this pass. The documentation commit's CI must finish on GitHub, and the final tag must be created after merging the verified commit to the intended release branch.
+AI assistance was used during data preparation, model-training workflow
+development, evaluation, FastAPI implementation, Docker and Kubernetes
+configuration, networking explanations, CI/CD documentation and performance
+analysis.
 
-## Tasks 1–5 and 7
+AI suggestions were not treated as measured evidence. The author executed
+the project scripts, model evaluations, API tests, Kubernetes operations,
+network simulations and CI checks and reviewed their outputs.
 
-The historical AI tools, prompts, accepted/reworked suggestions, and independent verification for these tasks are not established by this documentation pass. The project author must complete this section accurately from their own work history. The checked-in evaluation and performance numbers should remain sourced from actual result files/logs, not generated or estimated by AI.
+## Verification and responsibility
 
-## Work not delegated to AI
+- Model quality metrics were taken from actual evaluation outputs.
+- API latency and error measurements were taken from sequential and Locust
+  test results.
+- Kubernetes startup and recovery measurements were collected from the
+  running cluster.
+- CI results were checked against GitHub Actions runs.
+- AI-generated code and documentation were reviewed and adjusted where
+  necessary.
 
-No measured metric is asserted here without repository evidence. The report's interpretations, reflections, and any claims about work performed personally must be reviewed and written by the project author in their own words.
+The project author is responsible for the final submitted implementation,
+results, interpretation and conclusions. The handwritten reflection is
+the author's own final work, prepared with reference to an AI-assisted
+draft.
