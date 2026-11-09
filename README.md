@@ -12,8 +12,8 @@ service/        FastAPI inference service + Dockerfile (Task 3)
 k8s/            Deployment/Service/Ingress/HPA/Secret manifests (Task 4)
 network/        subnets.md, nacl.json (Task 5)
 .github/workflows/ci.yml   CI pipeline (Task 6)
-results/        score.py / Locust / kubectl output committed as evidence
-report/         report.pdf, this project's write-up (Task 1-7)
+results/        evaluation, checksums, logs, and reproducibility evidence
+report/         report and project write-up (Task 1-7)
 tests/          unit tests
 ```
 
@@ -23,7 +23,7 @@ tests/          unit tests
 # 1. stand up the cluster, SeaweedFS, and the service
 make up
 
-# 2. train the student model (writes models/v1, training/loss.csv)
+# 2. train the student model (requires the cleaned training data described in TASK6_REPRODUCIBILITY.md)
 make train                 # full run
 make train SUBSET=50       # quick smoke test only
 
@@ -43,8 +43,13 @@ python tools/nacl_sim.py network/nacl.json network/packets_sample.jsonl --check
 make down
 ```
 
+## Task 6: reproducibility and CI evidence
+
+See [TASK6_REPRODUCIBILITY.md](TASK6_REPRODUCIBILITY.md) for the pinned environment, model/checksum verification, CI stages, the deliberate quality-gate failure, security evidence, and final-tag procedure.
+
 ## GitHub links
 - Repository: https://github.com/alphacodes19/Cloud_Computing
-- Model release (v1): Pending publication
-- Model release (v2): Pending publication
-- CI run that fails the quality gate: Pending execution
+- Model release and assets: https://github.com/alphacodes19/Cloud_Computing/releases/tag/model-v1
+- Earlier successful CI run (baseline commit): https://github.com/alphacodes19/Cloud_Computing/actions/runs/42526703693
+- Deliberate quality-gate failure demonstration: https://github.com/alphacodes19/Cloud_Computing/actions/runs/42526718020
+- Final reproducibility tag: to be created after the documentation commit passes CI and is merged; see `TASK6_REPRODUCIBILITY.md`.
