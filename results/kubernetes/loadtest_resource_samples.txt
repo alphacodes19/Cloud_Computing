@@ -1,0 +1,81 @@
+===== 2026-11-08 23:10:59 | Sample 1 =====
+parser-service-6784cfdb64-hf4tc   4m    611Mi   
+parser-service-6784cfdb64-s5thx   3m    910Mi   
+===== 2026-11-08 23:11:04 | Sample 2 =====
+parser-service-6784cfdb64-hf4tc   4m    611Mi   
+parser-service-6784cfdb64-s5thx   3m    910Mi   
+===== 2026-11-08 23:11:09 | Sample 3 =====
+parser-service-6784cfdb64-hf4tc   4m    611Mi   
+parser-service-6784cfdb64-s5thx   4m    910Mi   
+===== 2026-11-08 23:11:15 | Sample 4 =====
+parser-service-6784cfdb64-hf4tc   4m    611Mi   
+parser-service-6784cfdb64-s5thx   4m    910Mi   
+===== 2026-11-08 23:11:20 | Sample 5 =====
+parser-service-6784cfdb64-hf4tc   95m   631Mi   
+parser-service-6784cfdb64-s5thx   4m    910Mi   
+===== 2026-11-08 23:11:25 | Sample 6 =====
+parser-service-6784cfdb64-hf4tc   95m   631Mi   
+parser-service-6784cfdb64-s5thx   4m    910Mi   
+===== 2026-11-08 23:11:30 | Sample 7 =====
+parser-service-6784cfdb64-hf4tc   95m   631Mi   
+parser-service-6784cfdb64-s5thx   4m    910Mi   
+===== 2026-11-08 23:11:36 | Sample 8 =====
+parser-service-6784cfdb64-hf4tc   1002m   671Mi   
+parser-service-6784cfdb64-s5thx   692m    933Mi   
+===== 2026-11-08 23:11:41 | Sample 9 =====
+parser-service-6784cfdb64-hf4tc   1002m   671Mi   
+parser-service-6784cfdb64-s5thx   692m    933Mi   
+===== 2026-11-08 23:11:46 | Sample 10 =====
+parser-service-6784cfdb64-hf4tc   1002m   671Mi   
+parser-service-6784cfdb64-s5thx   692m    933Mi   
+===== 2026-11-08 23:11:52 | Sample 11 =====
+parser-service-6784cfdb64-hf4tc   999m   895Mi   
+parser-service-6784cfdb64-s5thx   994m   995Mi   
+===== 2026-11-08 23:11:57 | Sample 12 =====
+parser-service-6784cfdb64-hf4tc   999m   895Mi   
+parser-service-6784cfdb64-s5thx   994m   995Mi   
+===== 2026-11-08 23:12:02 | Sample 13 =====
+parser-service-6784cfdb64-hf4tc   999m   895Mi   
+parser-service-6784cfdb64-s5thx   994m   995Mi   
+===== 2026-11-08 23:12:07 | Sample 14 =====
+parser-service-6784cfdb64-s5thx   631m   1002Mi   
+===== 2026-11-08 23:12:13 | Sample 15 =====
+parser-service-6784cfdb64-s5thx   631m   1002Mi   
+===== 2026-11-08 23:12:18 | Sample 16 =====
+parser-service-6784cfdb64-s5thx   631m   1002Mi   
+===== 2026-11-08 23:12:23 | Sample 17 =====
+===== 2026-11-08 23:12:28 | Sample 18 =====
+===== 2026-11-08 23:12:34 | Sample 19 =====
+===== 2026-11-08 23:12:39 | Sample 20 =====
+parser-service-6784cfdb64-hf4tc   797m   854Mi   
+parser-service-6784cfdb64-s5thx   817m   605Mi   
+===== 2026-11-08 23:12:45 | Sample 21 =====
+parser-service-6784cfdb64-hf4tc   797m   854Mi   
+parser-service-6784cfdb64-s5thx   817m   605Mi   
+===== 2026-11-08 23:12:50 | Sample 22 =====
+parser-service-6784cfdb64-hf4tc   595m   879Mi   
+parser-service-6784cfdb64-s5thx   817m   605Mi   
+===== 2026-11-08 23:12:55 | Sample 23 =====
+parser-service-6784cfdb64-hf4tc   595m   879Mi   
+parser-service-6784cfdb64-s5thx   817m   605Mi   
+===== 2026-11-08 23:13:00 | Sample 24 =====
+parser-service-6784cfdb64-hf4tc   595m   879Mi   
+parser-service-6784cfdb64-s5thx   817m   605Mi   
+===== 2026-11-08 23:13:06 | Sample 25 =====
+parser-service-6784cfdb64-hf4tc   595m   879Mi   
+parser-service-6784cfdb64-s5thx   871m   910Mi   
+===== 2026-11-08 23:13:11 | Sample 26 =====
+parser-service-6784cfdb64-hf4tc   595m   879Mi   
+parser-service-6784cfdb64-s5thx   871m   910Mi   
+===== 2026-11-08 23:13:16 | Sample 27 =====
+parser-service-6784cfdb64-hf4tc   595m   879Mi   
+parser-service-6784cfdb64-s5thx   871m   910Mi   
+===== 2026-11-08 23:13:21 | Sample 28 =====
+parser-service-6784cfdb64-hf4tc   996m    931Mi   
+parser-service-6784cfdb64-s5thx   1001m   936Mi   
+===== 2026-11-08 23:13:27 | Sample 29 =====
+parser-service-6784cfdb64-hf4tc   996m    931Mi   
+parser-service-6784cfdb64-s5thx   1001m   936Mi   
+===== 2026-11-08 23:13:32 | Sample 30 =====
+parser-service-6784cfdb64-hf4tc   996m    931Mi   
+parser-service-6784cfdb64-s5thx   1001m   936Mi   

@@ -1,0 +1,10 @@
+{
+  "json_validity": 98.0,
+  "intent_accuracy": 76.0,
+  "date_accuracy": 68.0,
+  "time_accuracy": 72.0,
+  "place_accuracy": 84.0,
+  "full_frame": 26.0,
+  "examples": 50,
+  "missing_predictions": 0
+}

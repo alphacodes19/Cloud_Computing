@@ -7,6 +7,11 @@ metadata:
     app: parser-service
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   selector:
     matchLabels:
       app: parser-service
@@ -17,7 +22,7 @@ spec:
     spec:
       containers:
         - name: parser-service
-          image: parser-service:latest   # built locally, imported into k3d with `k3d image import`
+          image: parser-service:decode-fix
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
@@ -29,7 +34,7 @@ spec:
             - name: S3_ENDPOINT
               value: "http://seaweedfs-s3.data.svc.cluster.local:8333"
             - name: MAX_NEW_TOKENS
-              value: "64"
+              value: "128"
             - name: FAULT_INJECT
               value: "0"
             - name: S3_ACCESS_KEY
@@ -53,12 +58,15 @@ spec:
             httpGet:
               path: /healthz
               port: 8000
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
             periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 5
           readinessProbe:
             httpGet:
               path: /readyz
               port: 8000
             initialDelaySeconds: 5
             periodSeconds: 5
-            failureThreshold: 30   # model download+load can take a while on CPU
+            timeoutSeconds: 5
+            failureThreshold: 30

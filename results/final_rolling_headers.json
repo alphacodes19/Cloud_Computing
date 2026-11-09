@@ -1,0 +1,14 @@
+{
+  "per_replica": {
+    "parser-service-5c6795f664-rmngt": 63,
+    "parser-service-5c6795f664-t2lwt": 86,
+    "parser-service-86cb4cff44-fztkg": 47,
+    "parser-service-86cb4cff44-5blzx": 49,
+    "parser-service-5c6795f664-hws6d": 177,
+    "parser-service-5c6795f664-45wv4": 155
+  },
+  "per_model_version": {
+    "v1": 481,
+    "v2": 96
+  }
+}

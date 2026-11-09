@@ -1,0 +1,17 @@
+{
+  "requests": 50,
+  "http_200": 49,
+  "http_errors": 1,
+  "transport_errors": 0,
+  "valid_json_objects": 50,
+  "valid_frames": 49,
+  "json_object_rate_percent": 100.0,
+  "valid_frame_rate_percent": 98.0,
+  "mean_latency_ms": 31119.4,
+  "p50_latency_ms": 25198.75,
+  "p95_latency_ms": 52377.87,
+  "min_latency_ms": 14897.61,
+  "max_latency_ms": 80906.88,
+  "total_duration_seconds": 1556.01,
+  "throughput_requests_per_second": 0.032
+}

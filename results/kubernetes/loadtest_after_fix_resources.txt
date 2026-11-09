@@ -1,0 +1,90 @@
+===== 2026-11-08 23:25:52 | Sample 1 =====
+parser-service-5bb777c75b-fgpx2   4m    630Mi   
+parser-service-5bb777c75b-vgbl2   3m    615Mi   
+===== 2026-11-08 23:25:57 | Sample 2 =====
+parser-service-5bb777c75b-fgpx2   4m    630Mi   
+parser-service-5bb777c75b-vgbl2   3m    615Mi   
+===== 2026-11-08 23:26:02 | Sample 3 =====
+parser-service-5bb777c75b-fgpx2   4m    630Mi   
+parser-service-5bb777c75b-vgbl2   3m    615Mi   
+===== 2026-11-08 23:26:08 | Sample 4 =====
+parser-service-5bb777c75b-fgpx2   3m    630Mi   
+parser-service-5bb777c75b-vgbl2   4m    615Mi   
+===== 2026-11-08 23:26:13 | Sample 5 =====
+parser-service-5bb777c75b-fgpx2   3m    630Mi   
+parser-service-5bb777c75b-vgbl2   4m    615Mi   
+===== 2026-11-08 23:26:18 | Sample 6 =====
+parser-service-5bb777c75b-fgpx2   3m    630Mi   
+parser-service-5bb777c75b-vgbl2   4m    615Mi   
+===== 2026-11-08 23:26:23 | Sample 7 =====
+parser-service-5bb777c75b-fgpx2   413m   655Mi   
+parser-service-5bb777c75b-vgbl2   418m   657Mi   
+===== 2026-11-08 23:26:29 | Sample 8 =====
+parser-service-5bb777c75b-fgpx2   413m   655Mi   
+parser-service-5bb777c75b-vgbl2   418m   657Mi   
+===== 2026-11-08 23:26:34 | Sample 9 =====
+parser-service-5bb777c75b-fgpx2   413m   655Mi   
+parser-service-5bb777c75b-vgbl2   418m   657Mi   
+===== 2026-11-08 23:26:39 | Sample 10 =====
+parser-service-5bb777c75b-fgpx2   1000m   678Mi   
+parser-service-5bb777c75b-vgbl2   974m    668Mi   
+===== 2026-11-08 23:26:44 | Sample 11 =====
+parser-service-5bb777c75b-fgpx2   1000m   678Mi   
+parser-service-5bb777c75b-vgbl2   974m    668Mi   
+===== 2026-11-08 23:26:50 | Sample 12 =====
+parser-service-5bb777c75b-fgpx2   1000m   678Mi   
+parser-service-5bb777c75b-vgbl2   974m    668Mi   
+===== 2026-11-08 23:26:55 | Sample 13 =====
+parser-service-5bb777c75b-fgpx2   1000m   699Mi   
+parser-service-5bb777c75b-vgbl2   916m    673Mi   
+===== 2026-11-08 23:27:00 | Sample 14 =====
+parser-service-5bb777c75b-fgpx2   1000m   699Mi   
+parser-service-5bb777c75b-vgbl2   916m    673Mi   
+===== 2026-11-08 23:27:05 | Sample 15 =====
+parser-service-5bb777c75b-fgpx2   1001m   705Mi   
+parser-service-5bb777c75b-vgbl2   907m    682Mi   
+===== 2026-11-08 23:27:10 | Sample 16 =====
+parser-service-5bb777c75b-fgpx2   1001m   705Mi   
+parser-service-5bb777c75b-vgbl2   907m    682Mi   
+===== 2026-11-08 23:27:16 | Sample 17 =====
+parser-service-5bb777c75b-fgpx2   1001m   705Mi   
+parser-service-5bb777c75b-vgbl2   907m    682Mi   
+===== 2026-11-08 23:27:21 | Sample 18 =====
+parser-service-5bb777c75b-fgpx2   909m   710Mi   
+parser-service-5bb777c75b-vgbl2   914m   695Mi   
+===== 2026-11-08 23:27:26 | Sample 19 =====
+parser-service-5bb777c75b-fgpx2   909m   710Mi   
+parser-service-5bb777c75b-vgbl2   914m   695Mi   
+===== 2026-11-08 23:27:31 | Sample 20 =====
+parser-service-5bb777c75b-fgpx2   909m   710Mi   
+parser-service-5bb777c75b-vgbl2   914m   695Mi   
+===== 2026-11-08 23:27:37 | Sample 21 =====
+parser-service-5bb777c75b-fgpx2   850m   685Mi   
+parser-service-5bb777c75b-vgbl2   999m   701Mi   
+===== 2026-11-08 23:27:42 | Sample 22 =====
+parser-service-5bb777c75b-fgpx2   850m   685Mi   
+parser-service-5bb777c75b-vgbl2   999m   701Mi   
+===== 2026-11-08 23:27:47 | Sample 23 =====
+parser-service-5bb777c75b-fgpx2   850m   685Mi   
+parser-service-5bb777c75b-vgbl2   999m   701Mi   
+===== 2026-11-08 23:27:52 | Sample 24 =====
+parser-service-5bb777c75b-fgpx2   1000m   703Mi   
+parser-service-5bb777c75b-vgbl2   524m    665Mi   
+===== 2026-11-08 23:27:58 | Sample 25 =====
+parser-service-5bb777c75b-fgpx2   1000m   703Mi   
+parser-service-5bb777c75b-vgbl2   524m    665Mi   
+===== 2026-11-08 23:28:03 | Sample 26 =====
+parser-service-5bb777c75b-fgpx2   1000m   703Mi   
+parser-service-5bb777c75b-vgbl2   524m    665Mi   
+===== 2026-11-08 23:28:08 | Sample 27 =====
+parser-service-5bb777c75b-fgpx2   1001m   735Mi   
+parser-service-5bb777c75b-vgbl2   548m    669Mi   
+===== 2026-11-08 23:28:13 | Sample 28 =====
+parser-service-5bb777c75b-fgpx2   1001m   735Mi   
+parser-service-5bb777c75b-vgbl2   548m    669Mi   
+===== 2026-11-08 23:28:18 | Sample 29 =====
+parser-service-5bb777c75b-fgpx2   1001m   735Mi   
+parser-service-5bb777c75b-vgbl2   548m    669Mi   
+===== 2026-11-08 23:28:24 | Sample 30 =====
+parser-service-5bb777c75b-fgpx2   677m   738Mi   
+parser-service-5bb777c75b-vgbl2   374m   669Mi   

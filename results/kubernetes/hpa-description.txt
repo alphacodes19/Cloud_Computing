@@ -1,0 +1,24 @@
+Name:                                                  parser-service
+Namespace:                                             app
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Sun, 08 Nov 2026 22:01:53 +0000
+Reference:                                             Deployment/parser-service
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  200% (502m) / 70%
+Min replicas:                                          1
+Max replicas:                                          2
+Deployment pods:                                       2 current / 2 desired
+Conditions:
+  Type            Status  Reason            Message
+  ----            ------  ------            -------
+  AbleToScale     True    ReadyForNewScale  recommended size matches current size
+  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  True    TooManyReplicas   the desired replica count is more than the maximum replica count
+Events:
+  Type     Reason                        Age                From                       Message
+  ----     ------                        ----               ----                       -------
+  Warning  FailedGetResourceMetric       17m (x5 over 57m)  horizontal-pod-autoscaler  failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Warning  FailedComputeMetricsReplicas  17m (x5 over 57m)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Normal   SuccessfulRescale             3m41s              horizontal-pod-autoscaler  New size: 1; reason: All metrics below target
+  Normal   SuccessfulRescale             115s               horizontal-pod-autoscaler  New size: 2; reason: cpu resource utilization (percentage of request) above target

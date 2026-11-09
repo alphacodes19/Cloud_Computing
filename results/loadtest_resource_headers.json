@@ -1,0 +1,9 @@
+{
+  "per_replica": {
+    "parser-service-6784cfdb64-s5thx": 26,
+    "parser-service-6784cfdb64-hf4tc": 24
+  },
+  "per_model_version": {
+    "v1": 50
+  }
+}

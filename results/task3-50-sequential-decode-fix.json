@@ -1,0 +1,20 @@
+{
+  "total": 50,
+  "successful": 49,
+  "failed": 1,
+  "failure_rate_percent": 2.0,
+  "mean_seconds": 0.56,
+  "p50_seconds": 0.561,
+  "p95_seconds": 0.668,
+  "max_seconds": 2.868,
+  "model_versions": {
+    "v1": 50
+  },
+  "failures": [
+    {
+      "index": 39,
+      "status": 500,
+      "body": "{\"error\":\"invalid_model_output\"}"
+    }
+  ]
+}

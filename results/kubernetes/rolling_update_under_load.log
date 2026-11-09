@@ -1,0 +1,48 @@
+===== V2 ROLLOUT START =====
+2026-11-08T23:41:51+00:00
+deployment.apps/parser-service env updated
+Waiting for deployment "parser-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "parser-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "parser-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "parser-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "parser-service" rollout to finish: 1 of 2 updated replicas are available...
+Waiting for deployment "parser-service" rollout to finish: 1 of 2 updated replicas are available...
+deployment "parser-service" successfully rolled out
+===== V2 API VERIFICATION =====
+2026-11-08T23:42:28+00:00
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     48   0      0 100     48      0     39   00:01   00:01             39100    119 100     71 100     48     54     36   00:01   00:01             39100    119 100     71 100     48     54     36   00:01   00:01             39100    119 100     71 100     48     54     36   00:01   00:01             39
+HTTP/1.1 200 OK
+Content-Length: 71
+Content-Type: application/json
+Date: Sun, 08 Nov 2026 23:42:27 GMT
+Server: uvicorn
+X-Model-Version: v2
+X-Served-By: parser-service-9d68d5656-44qpm
+
+{"intent":"alarm_set","date":"tomorrow","time":"seven am","place":null}===== ROLLBACK TO V1 =====
+2026-11-08T23:42:29+00:00
+Warning: resource deployments/parser-service was previously managed with 'kubectl apply'. Rolling back will not update the kubectl.kubernetes.io/last-applied-configuration annotation, which may cause unexpected behavior on future 'kubectl apply' operations. Consider using 'kubectl apply' with your previous configuration file instead.
+deployment.apps/parser-service rolled back
+Waiting for deployment "parser-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "parser-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "parser-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "parser-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "parser-service" rollout to finish: 1 of 2 updated replicas are available...
+Waiting for deployment "parser-service" rollout to finish: 1 of 2 updated replicas are available...
+deployment "parser-service" successfully rolled out
+===== V1 API VERIFICATION =====
+2026-11-08T23:43:05+00:00
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100     48   0      0 100     48      0     39   00:01   00:01             39100     48   0      0 100     48      0     21   00:02   00:02             21100    119 100     71 100     48     31     21   00:02   00:02             21100    119 100     71 100     48     31     21   00:02   00:02             21100    119 100     71 100     48     31     21   00:02   00:02             21
+HTTP/1.1 200 OK
+Content-Length: 71
+Content-Type: application/json
+Date: Sun, 08 Nov 2026 23:43:04 GMT
+Server: uvicorn
+X-Model-Version: v1
+X-Served-By: parser-service-5bb777c75b-z9v4t
+
+{"intent":"alarm_set","date":"tomorrow","time":"seven am","place":null}

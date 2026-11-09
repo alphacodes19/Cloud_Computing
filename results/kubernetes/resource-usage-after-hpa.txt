@@ -1,0 +1,3 @@
+NAME                              CPU(cores)   MEMORY(bytes)   
+parser-service-6784cfdb64-hf4tc   3m           608Mi           
+parser-service-6784cfdb64-s5thx   1000m        669Mi           

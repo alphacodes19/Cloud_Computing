@@ -1,0 +1,4 @@
+trial,deleted_pod,replacement_pod,started_at_utc,ready_at_utc,cold_start_seconds
+1,parser-service-6784cfdb64-462fb,parser-service-6784cfdb64-b85c8,2026-11-08T22:49:31.893707+00:00,2026-11-08T22:49:55.960946+00:00,24.069
+2,parser-service-6784cfdb64-b85c8,parser-service-6784cfdb64-qm8x7,2026-11-08T22:49:56.656443+00:00,2026-11-08T22:50:20.215657+00:00,23.562
+3,parser-service-6784cfdb64-qm8x7,parser-service-6784cfdb64-7wjnj,2026-11-08T22:50:20.957350+00:00,2026-11-08T22:50:51.956677+00:00,31.002

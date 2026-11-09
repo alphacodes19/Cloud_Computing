@@ -1,0 +1,4 @@
+NAME                              READY   STATUS      RESTARTS   AGE     IP           NODE                          NOMINATED NODE   READINESS GATES
+parser-lb-probe                   0/1     Completed   0          26s     10.42.0.12   k3d-cs3081-cluster-agent-0    <none>           <none>
+parser-service-6784cfdb64-462fb   1/1     Running     0          6m7s    10.42.1.19   k3d-cs3081-cluster-server-0   <none>           <none>
+parser-service-6784cfdb64-s5thx   1/1     Running     0          7m25s   10.42.0.11   k3d-cs3081-cluster-agent-0    <none>           <none>

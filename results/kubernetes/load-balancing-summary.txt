@@ -1,0 +1,8 @@
+Kubernetes Service Load-Balancing Test
+
+Requests sent: 30
+Total HTTP health-check requests: 30
+Replica parser-service-6784cfdb64-462fb: 19
+Replica parser-service-6784cfdb64-s5thx: 11
+Total requests served: 30
+Result: Both application replicas received requests.

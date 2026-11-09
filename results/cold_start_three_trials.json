@@ -1,0 +1,61 @@
+{
+  "trials": [
+    {
+      "trial": 1,
+      "pods": [
+        {
+          "pod": "parser-service-5c6795f664-5pc4c",
+          "creation_to_ready_seconds": 12.0,
+          "download_logged": true,
+          "loaded_logged": true
+        },
+        {
+          "pod": "parser-service-5c6795f664-zsg4m",
+          "creation_to_ready_seconds": 17.0,
+          "download_logged": true,
+          "loaded_logged": true
+        }
+      ],
+      "trial_median_seconds": 14.5
+    },
+    {
+      "trial": 2,
+      "pods": [
+        {
+          "pod": "parser-service-5c6795f664-jxrg4",
+          "creation_to_ready_seconds": 22.0,
+          "download_logged": true,
+          "loaded_logged": true
+        },
+        {
+          "pod": "parser-service-5c6795f664-k47tg",
+          "creation_to_ready_seconds": 12.0,
+          "download_logged": true,
+          "loaded_logged": true
+        }
+      ],
+      "trial_median_seconds": 17.0
+    },
+    {
+      "trial": 3,
+      "pods": [
+        {
+          "pod": "parser-service-5c6795f664-gq2wz",
+          "creation_to_ready_seconds": 12.0,
+          "download_logged": true,
+          "loaded_logged": true
+        },
+        {
+          "pod": "parser-service-5c6795f664-mj8bx",
+          "creation_to_ready_seconds": 7.0,
+          "download_logged": true,
+          "loaded_logged": true
+        }
+      ],
+      "trial_median_seconds": 9.5
+    }
+  ],
+  "overall_pod_median_seconds": 12.0,
+  "overall_pod_mean_seconds": 13.667,
+  "pod_measurements": 6
+}

@@ -1,0 +1,34 @@
+{
+  "trials": 3,
+  "measure_definition": "Time from Pod deletion request until replacement Pod Ready condition",
+  "median_cold_start_seconds": 24.069,
+  "mean_cold_start_seconds": 26.211,
+  "minimum_cold_start_seconds": 23.562,
+  "maximum_cold_start_seconds": 31.002,
+  "measurements": [
+    {
+      "trial": 1,
+      "deleted_pod": "parser-service-6784cfdb64-462fb",
+      "replacement_pod": "parser-service-6784cfdb64-b85c8",
+      "started_at_utc": "2026-11-08T22:49:31.893707+00:00",
+      "ready_at_utc": "2026-11-08T22:49:55.960946+00:00",
+      "cold_start_seconds": 24.069
+    },
+    {
+      "trial": 2,
+      "deleted_pod": "parser-service-6784cfdb64-b85c8",
+      "replacement_pod": "parser-service-6784cfdb64-qm8x7",
+      "started_at_utc": "2026-11-08T22:49:56.656443+00:00",
+      "ready_at_utc": "2026-11-08T22:50:20.215657+00:00",
+      "cold_start_seconds": 23.562
+    },
+    {
+      "trial": 3,
+      "deleted_pod": "parser-service-6784cfdb64-qm8x7",
+      "replacement_pod": "parser-service-6784cfdb64-7wjnj",
+      "started_at_utc": "2026-11-08T22:50:20.957350+00:00",
+      "ready_at_utc": "2026-11-08T22:50:51.956677+00:00",
+      "cold_start_seconds": 31.002
+    }
+  ]
+}
